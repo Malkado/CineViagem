@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1078907991995",
+    "firebase_url": "https://agillefilmes.firebaseio.com",
+    "project_id": "agillefilmes",
+    "storage_bucket": "agillefilmes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078907991995:android:ee70ad2a39f11c2f",
+        "android_client_info": {
+          "package_name": "br.com.agillefilmes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078907991995-m3veb51400rh1dih92rk5a72hspl46t9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.agillefilmes",
+            "certificate_hash": "ca69d83c44b1dd2f0eee7b7af0a3fa759b900fdf"
+          }
+        },
+        {
+          "client_id": "1078907991995-ss4sqjt2tedee2qf5ks0ddrfoe46l39l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7HpM18nSQMNYkWwACV_WRhHWhXUTi59g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078907991995-ss4sqjt2tedee2qf5ks0ddrfoe46l39l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

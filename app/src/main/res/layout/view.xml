@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backgroundBlack"
+    android:layout_centerHorizontal="true"
+    >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+                <VideoView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/video_view"
+                android:layout_centerInParent="true"
+                    />
+                </LinearLayout>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/btn_voltar"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_chevron_left_black_24dp"
+                    android:layout_margin="7dp"
+                    android:padding="2dp"
+                    android:outlineSpotShadowColor="@color/backgroundBlack"
+                    android:outlineAmbientShadowColor="@color/backgroundBlack"
+                    android:onClick="VoltarTela"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+Filme"
+                    android:textStyle="bold"
+                    android:textSize="22dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginLeft="22dp"
+                    android:layout_toRightOf="@id/btn_voltar"
+                    android:textColor="@color/white"/>
+                </RelativeLayout>
+        </FrameLayout>
+</RelativeLayout>
