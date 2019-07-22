@@ -16,9 +16,13 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -27,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     EditText EditEmail;
     EditText EditPassword;
     CheckBox ShowView;
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -42,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         EditEmail=findViewById(R.id.EdtEmail);
         EditPassword=findViewById(R.id.EdtPassword);
         ShowView=findViewById(R.id.checkbox_mostrarSenha);
+
+        mAuth= FirebaseAuth.getInstance();
 
         ShowView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -61,16 +68,60 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void video(View v ){
+    public void video(View v )
+    {
         Intent intent= new Intent(MainActivity.this, ViewActivity.class);
         startActivity(intent);
+    }
+    public void ExcuteLogin(View v )
+    {
+        String email = EditEmail.getText().toString().trim();
+        String password= EditPassword.getText().toString().trim();
+        if (email.equals(""))
+        {
+            EditEmail.setError("Preencha este campo!!");
+            return;
+        }
+        if (password.equals(""))
+        {
+            EditPassword.setError("Preencha este campo!!");
+            return;
+        }
+        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful())
+                {
+                    UpdateUI(mAuth.getCurrentUser());
+                }else{
+                    Toast.makeText(MainActivity.this,"Usuário ou senha incorreta!",Toast.LENGTH_SHORT).show();
+                    UpdateUI(null);
+                }
+
+            }
+        });
+
+
     }
     public void buttonText(View v){
         Toast.makeText(this,"Manda uma mensagem dizendo o que achou",Toast.LENGTH_LONG).show();
     }
-
-    protected void onStart(){
-        super.onStart();
+    public void UpdateUI(FirebaseUser user)
+    {
+        if(user!=null){
+            Intent intent= new Intent(MainActivity.this, ViewActivity.class);
+            startActivity(intent);
+        }
     }
+    public void SelectSingUP(View view){
+        //Cadastro de novo usuário
+    }
+    protected void onStart(){
+
+        super.onStart();
+        FirebaseUser currentUser= mAuth.getCurrentUser();
+        UpdateUI (currentUser);
+    }
+
 
 }
