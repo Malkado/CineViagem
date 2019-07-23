@@ -1,11 +1,12 @@
-package br.com.agillefilmes;
+package br.com.agillefilmes.View;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Window;
 import android.view.WindowManager;
+
+import br.com.agillefilmes.R;
 
 public class SplashActivity extends AppCompatActivity {
 

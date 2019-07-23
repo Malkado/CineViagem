@@ -1,4 +1,4 @@
-package br.com.agillefilmes;
+package br.com.agillefilmes.View;
 
 import android.graphics.SurfaceTexture;
 import android.media.MediaPlayer;
@@ -9,7 +9,7 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.widget.MediaController;
 
-import java.io.IOException;
+import br.com.agillefilmes.R;
 
 public class ViewSurficeActivity extends AppCompatActivity implements TextureView.SurfaceTextureListener{
     private MediaPlayer mediaPlayer;

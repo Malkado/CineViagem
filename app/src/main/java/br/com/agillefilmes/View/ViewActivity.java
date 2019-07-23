@@ -1,4 +1,4 @@
-package br.com.agillefilmes;
+package br.com.agillefilmes.View;
 
 
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.MediaController;
 import android.widget.VideoView;
+
+import br.com.agillefilmes.R;
 
 
 public class ViewActivity extends AppCompatActivity  {

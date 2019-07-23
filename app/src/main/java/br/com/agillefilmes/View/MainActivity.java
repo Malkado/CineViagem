@@ -1,31 +1,25 @@
-package br.com.agillefilmes;
+package br.com.agillefilmes.View;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
+
+import br.com.agillefilmes.R;
 
 public class MainActivity extends AppCompatActivity {
     EditText EditEmail;
@@ -114,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void SelectSingUP(View view){
-        //Cadastro de novo usuário
+        startActivity(new Intent(MainActivity.this, CadastroActivity.class));
     }
     protected void onStart(){
 
