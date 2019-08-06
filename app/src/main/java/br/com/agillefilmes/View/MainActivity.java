@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
     public void UpdateUI(FirebaseUser user)
     {
         if(user!=null){
-            Intent intent= new Intent(MainActivity.this, ViewActivity.class);
+            Intent intent= new Intent(MainActivity.this, ActivitySelection.class);
             startActivity(intent);
         }
     }

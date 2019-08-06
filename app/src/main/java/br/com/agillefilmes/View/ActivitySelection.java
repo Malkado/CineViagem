@@ -1,5 +1,6 @@
 package br.com.agillefilmes.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -7,16 +8,20 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import br.com.agillefilmes.Fragment.HomeFragment;
+import br.com.agillefilmes.Fragment.SeachFragment;
+import br.com.agillefilmes.Fragment.SettingsFragment;
 import br.com.agillefilmes.R;
 
 public class ActivitySelection extends AppCompatActivity {
-    private TextView mTextMessage;
+
     FirebaseAuth mAuth;
 
     @Override
@@ -30,7 +35,6 @@ public class ActivitySelection extends AppCompatActivity {
         mAuth =FirebaseAuth.getInstance();
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -45,10 +49,16 @@ public class ActivitySelection extends AppCompatActivity {
                     openFragment(homefragment);
 
                     break;
-                case R.id.navigation_dashboard:
+                case R.id.navegation_seach:
+
+                    Fragment seachfragment = SeachFragment.newInstance();
+                    openFragment(seachfragment);
 
                     break;
-                case R.id.navigation_notifications:
+                case R.id.navegation_settings:
+
+                    Fragment settingsfragments = SettingsFragment.newInstance();
+                    openFragment(settingsfragments);
 
                     break;
             }
@@ -61,6 +71,26 @@ public class ActivitySelection extends AppCompatActivity {
         transaction.addToBackStack(null);
         transaction.commit();
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+    }
+
+    public void logout(View view){
+        mAuth.getInstance().signOut();
+        FirebaseUser user= mAuth.getCurrentUser();
+        UpdateUI(user);
+    }
+    public void UpdateUI(FirebaseUser user)
+    {
+        if(user==null){
+            Intent intent= new Intent(ActivitySelection.this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
 }

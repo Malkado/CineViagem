@@ -110,12 +110,12 @@ public class CadastroActivity extends AppCompatActivity {
             EditConfirmPass.requestFocus();
             return;
         }
-        if (password != confirmPass){
+        /*if (password != confirmPass){
 
             EditConfirmPass.setError("Confirme a senha corretamente!");
             EditConfirmPass.requestFocus();
             return;
-        }
+        }*/
 
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override

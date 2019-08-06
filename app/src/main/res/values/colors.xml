@@ -9,5 +9,8 @@
     <color name="Gray3">#696969</color>
     <color name="DarkOrchid1">#BF3EFF</color>
     <color name="Turquoise1">#00F5FF</color>
+    <color name="Gray4">#292929</color>
+    <color name="Gray5">#444444</color>
+    <color name="Gray6">#1F1F1F</color>
 
 </resources>
